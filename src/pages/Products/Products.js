@@ -31,8 +31,8 @@ const Products = () => {
         </Dialog>
       </React.Fragment>
 
-      <div className="pl-10 md:pl-10 md:px-10 my-10">
-        <div className="flex items-center space-x-3 mb-4">
+      <div className="px-3 md:px-10 my-10">
+        <div className="inline-flex items-center space-x-3 mb-4">
           <button className="bg-[#165315] text-xl text-white px-3 py-2 font-[600]">
             Plants
           </button>

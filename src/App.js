@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="">
       <BrowserRouter>
         <Header />
         <Routes>
@@ -17,6 +17,13 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
+      <div className="bottom-[20px] right-[20px] sticky flex justify-end bg-trasparent mr-[20px] z-50">
+        <img
+          src="/assets/whatsapp-image.png"
+          alt="whatsapp-icon"
+          className="animate-bounce cursor-pointer"
+        />
+      </div>
     </div>
   );
 }

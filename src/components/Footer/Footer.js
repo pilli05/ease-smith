@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <>
       <div className="bg-[#F0FFE5] px-5 md:px-10 lg:px-20 py-5">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
           <div>
             <h1 className="text-[20px] font-[500] text-[#000000]">
               SUBSCRIBE TO OUR <br />
@@ -19,7 +19,7 @@ const Footer = () => {
               necesbus enim
             </p>
             <input
-              className="bg-white px-3 py-2 outline-none border border-[#0000004D] my-1"
+              className="bg-white px-3 py-2 outline-none border border-[#0000004D] my-1 w-full"
               placeholder="Enter Your Email Address"
             />
             <br />
@@ -119,7 +119,7 @@ const Footer = () => {
         </div>
         <div className="mt-10 mb-2">
           <h1 className="font-[500] text-[22px] text-black my-2">CHAPERONE</h1>
-          <p className="text-[#838383] text-[16px] font-400 leading-6">
+          <p className="text-[#838383] text-base font-400 leading-6">
             Lorem ipsum dolor sit amet. Aut ipsam illum et nostrum quidem aut
             necessitatibus enim ut internos accusantium a numquam autem ab rerum
             omnis. Non molestiae ratione et laborum doloribus aut molestiae
