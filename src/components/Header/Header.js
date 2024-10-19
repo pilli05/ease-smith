@@ -1,18 +1,19 @@
 import React from "react";
 import "./Header.css";
+import { CiSearch } from "react-icons/ci";
 
 const Header = () => {
   return (
     <>
       <div className="bg-[#165315] px-3 py-2 grid grid-cols-12">
-        <span className="text-white text-sm font-[500] col-span-12 md:col-span-6 text-end">
+        <span className="text-white text-sm font-[500] col-span-12 md:col-span-7 text-end">
           Free Shipping on orders above 999 /-
         </span>
-        <span className="text-white text-sm font-[500] col-span-12 md:col-span-6 text-end">
+        <span className="text-white text-sm font-[500] col-span-12 md:col-span-5 text-end">
           Call us on: +91 98768 05120
         </span>
       </div>
-      <div className="my-5 grid grid-cols-12 items-center px-5 ">
+      <div className="my-5 grid grid-cols-12 items-center px-10 sticky top-0 py-5 bg-white z-50">
         <div className="col-span-3 flex items-center">
           <img
             src="/assets/easesmith-logo.png"
@@ -32,7 +33,7 @@ const Header = () => {
           <span>Our Story</span>
           <span>FAQs</span>
         </div>
-        <div className="col-span-3 flex justify-center space-x-5">
+        <div className="col-span-3 flex justify-end space-x-5">
           <div className="flex flex-col items-center">
             <img
               src="/assets/account-profile.png"
@@ -48,6 +49,23 @@ const Header = () => {
               <span>3</span>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="inline-flex items-center justify-between border-b-2 border-b-[#838383]  w-[370px]">
+          <div className="flex items-center">
+            <CiSearch size={25} color="#838383" />
+            <input
+              type="text"
+              className="outline-none text-[#838383] px-2"
+              placeholder="Search Plant"
+            />
+          </div>
+          <img
+            src="/assets/flower-image.png"
+            alt="flower-image"
+            className="w-10"
+          />
         </div>
       </div>
     </>

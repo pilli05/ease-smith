@@ -1,0 +1,7 @@
+.react-multiple-carousel__arrow--left {
+  left: calc(0%);
+}
+
+.react-multiple-carousel__arrow--right {
+  right: calc(0%);
+}
