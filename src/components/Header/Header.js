@@ -1,8 +1,14 @@
 import React from "react";
 import "./Header.css";
 import { CiSearch } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleHomePage = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <div className="bg-[#165315] px-3 py-3 md:py-2 grid grid-cols-12 space-y-1 md:space-y-0">
@@ -14,11 +20,12 @@ const Header = () => {
         </span>
       </div>
       <div className="my-5 grid grid-cols-12 items-center px-10 sticky top-0 py-5 bg-white z-50 ">
-        <div className="col-span-3 flex items-center">
+        <div className="col-span-3 flex items-center ">
           <img
             src="/assets/easesmith-logo.png"
             alt="logo"
-            className="w-[60px] mr-4"
+            className="w-[60px] mr-4 cursor-pointer"
+            onClick={handleHomePage}
           />
           <span className="text-2xl font-[600] text-[#165315]">Chaperone</span>
         </div>

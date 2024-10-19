@@ -3,6 +3,7 @@ import "./App.css";
 import Products from "./pages/Products/Products";
 import Header from "./components/Header/Header";
 import ThankYou from "./pages/ThankYou/ThankYou";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/" element={<Navigate to="/products" />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

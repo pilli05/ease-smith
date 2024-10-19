@@ -3,6 +3,7 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { productsList } from "../../constant/productsList";
 import { PiGreaterThan, PiLessThan } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = () => {
   const [bookMarkedProductsList, setBookMarkedProductsList] = useState([]);
@@ -15,6 +16,8 @@ const ProductCard = () => {
     firstProductIndex,
     lastProductIndex
   );
+
+  const navigate = useNavigate();
 
   const markItAsBookMark = (id) => {
     setBookMarkedProductsList((prevBookMarked) => {
@@ -32,6 +35,10 @@ const ProductCard = () => {
 
   const handlePageChange = (currentPage) => {
     setCurrentPage(currentPage);
+  };
+
+  const handleThankYouPage = () => {
+    navigate("/thank-you");
   };
 
   return (
@@ -62,9 +69,12 @@ const ProductCard = () => {
                       <img
                         src={product.imgUrl}
                         alt=""
-                        className="w-64 h-64 p-5"
+                        className="w-64 h-64 p-5 hover:scale-110 transition-all duration-500"
                       />
-                      <p className="text-center text-white font-[600] text-base py-2 bg-[#165315] w-full h-9">
+                      <p
+                        className="text-center text-white font-[600] text-base py-2 bg-[#165315] w-full h-9 cursor-pointer hover:bg-transparent hover:border-t hover:border-[#0000004D] hover:text-[#165315] transition-all duration-500"
+                        onClick={handleThankYouPage}
+                      >
                         View Product
                       </p>
                     </div>
@@ -118,7 +128,7 @@ const ProductCard = () => {
               className={
                 currentNumber === currentPage
                   ? " bg-[#F3A939] rounded-lg  py-1 text-black font-[500] text-[15px] h-[35px] w-[30px]"
-                  : "border border-[#F3A939] rounded-lg  py-1 text-black font-[500] text-[15px] h-[35px] w-[30px]"
+                  : "border border-[#F3A939] rounded-lg  py-1 text-black font-[500] text-[15px] h-[35px] w-[30px] hover:bg-[#F3A939] transition-all duration-500"
               }
               key={currentNumber}
               onClick={() => handlePageChange(currentNumber)}
