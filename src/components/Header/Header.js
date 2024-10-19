@@ -45,8 +45,8 @@ const Header = () => {
           <div className="relative flex flex-col items-center">
             <img src="/assets/cart.png" alt="account-profile" className="w-6" />
             <span className="text-[13px] font-[500] mt-1">Cart</span>
-            <div className="absolute top-[-18px] right-[-7px] bg-[#F3A939] w-5 h-5 flex justify-center items-center rounded-full">
-              <span>3</span>
+            <div className="absolute top-[-18px] right-[-7px] bg-[#F3A939]  w-5 h-5 flex justify-center items-center rounded-full">
+              <span className="text-[12px]">3</span>
             </div>
           </div>
         </div>

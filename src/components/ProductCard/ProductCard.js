@@ -1,38 +1,60 @@
 import React, { useState } from "react";
-import { CiHeart } from "react-icons/ci";
 import { FiMinus, FiPlus } from "react-icons/fi";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { productsList } from "../../constant/productsList";
 import { PiGreaterThan, PiLessThan } from "react-icons/pi";
 
 const ProductCard = () => {
-  const [bookMark, setBookMark] = useState(false);
+  const [bookMarkedProductsList, setBookMarkedProductsList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 9;
 
-  const markItAsBookMark = () => {
-    setBookMark(!bookMark);
+  const lastProductIndex = currentPage * productsPerPage;
+  const firstProductIndex = lastProductIndex - productsPerPage;
+  const currentProductsList = productsList.slice(
+    firstProductIndex,
+    lastProductIndex
+  );
+
+  const markItAsBookMark = (id) => {
+    setBookMarkedProductsList((prevBookMarked) => {
+      if (prevBookMarked.includes(id)) {
+        return prevBookMarked.filter((productId) => productId !== id);
+      }
+      return [...prevBookMarked, id];
+    });
   };
 
-  console.log(productsList);
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(productsList.length / productsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  const handlePageChange = (currentPage) => {
+    setCurrentPage(currentPage);
+  };
 
   return (
     <>
       <div className="md:pl-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {productsList && productsList.length > 0
-          ? productsList.map((product) => (
+        {currentProductsList && currentProductsList.length > 0
+          ? currentProductsList.map((product) => (
               <div key={product.id}>
                 <div className="border border-[#0000004D] ">
                   <div>
                     <div className="flex justify-end p-2">
-                      {bookMark ? (
+                      {bookMarkedProductsList.includes(product.id) ? (
                         <FaHeart
                           color="red"
                           className="cursor-pointer"
-                          onClick={markItAsBookMark}
+                          onClick={() => markItAsBookMark(product.id)}
+                          size={23}
                         />
                       ) : (
-                        <CiHeart
+                        <FaRegHeart
                           className="cursor-pointer"
-                          onClick={markItAsBookMark}
+                          onClick={() => markItAsBookMark(product.id)}
+                          size={23}
                         />
                       )}
                     </div>
@@ -75,6 +97,7 @@ const ProductCard = () => {
                       <FiMinus className="mr-2" /> Add to cart{" "}
                       <FiPlus className="ml-2" />
                     </button>
+
                     <button className="border border-[#165315] rounded-lg px-2 py-1 text-[#165315] font-[500] text-[15px]">
                       Buy on Rent
                     </button>
@@ -85,13 +108,32 @@ const ProductCard = () => {
           : null}
       </div>
       <div className="p-3 my-10 flex justify-center">
-        <div className="md:w-[50%] lg:w-[20%] flex justify-between items-center">
-          <button className="flex items-center">
-            <PiLessThan className="mr-1" /> Prev
-          </button>
-          <button className="flex items-center">
-            Next <PiGreaterThan className="ml-1" />
-          </button>
+        <div className="flex items-center space-x-5">
+          <PiLessThan
+            className={currentPage === 1 ? "invisible" : "flex items-center"}
+          />
+
+          {pageNumbers.map((currentNumber) => (
+            <button
+              className={
+                currentNumber === currentPage
+                  ? " bg-[#F3A939] rounded-lg  py-1 text-black font-[500] text-[15px] h-[35px] w-[30px]"
+                  : "border border-[#F3A939] rounded-lg  py-1 text-black font-[500] text-[15px] h-[35px] w-[30px]"
+              }
+              key={currentNumber}
+              onClick={() => handlePageChange(currentNumber)}
+            >
+              {currentNumber}
+            </button>
+          ))}
+
+          <PiGreaterThan
+            className={
+              currentProductsList.length < productsPerPage
+                ? "invisible"
+                : "flex items-center"
+            }
+          />
         </div>
       </div>
     </>

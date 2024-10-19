@@ -34,9 +34,22 @@ const Products = () => {
               <span className="font-[400] text-[15px] text-[#6A6A6A]">
                 300 Products
               </span>
-              <select className="bg-[#165315] py-1 px-2 text-white rounded outline-none w-[140px] font-[700] text-base">
-                <option className="bg-white text-black">SORT BY</option>
-                <option className="bg-white text-black">Sort By</option>
+              <select className="bg-[#165315] py-1 px-2 text-white rounded outline-none w-[180px] font-[700] text-base">
+                <option className="bg-white text-black" disabled>
+                  Sort By
+                </option>
+                <option className="bg-white text-black" value="size">
+                  Size
+                </option>
+                <option className="bg-white text-black" value="popularity">
+                  Popularity
+                </option>
+                <option className="bg-white text-black" value="low to high">
+                  Price, Low to High
+                </option>
+                <option className="bg-white text-black" value="high to low">
+                  Price, High to Low
+                </option>
               </select>
             </div>
             <div className="flex items-center space-x-2 block md:hidden">
