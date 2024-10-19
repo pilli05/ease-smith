@@ -5,15 +5,15 @@ import { CiSearch } from "react-icons/ci";
 const Header = () => {
   return (
     <>
-      <div className="bg-[#165315] px-3 py-2 grid grid-cols-12">
-        <span className="text-white text-sm font-[500] col-span-12 md:col-span-7 text-end">
+      <div className="bg-[#165315] px-3 py-3 md:py-2 grid grid-cols-12 space-y-1 md:space-y-0">
+        <span className="text-white text-sm font-[500] col-span-12 md:col-span-7 text-center md:text-end">
           Free Shipping on orders above 999 /-
         </span>
-        <span className="text-white text-sm font-[500] col-span-12 md:col-span-5 text-end">
+        <span className="text-white text-sm font-[500] col-span-12 md:col-span-5 text-center md:text-end">
           Call us on: +91 98768 05120
         </span>
       </div>
-      <div className="my-5 grid grid-cols-12 items-center px-10 sticky top-0 py-5 bg-white z-50">
+      <div className="my-5 grid grid-cols-12 items-center px-10 sticky top-0 py-5 bg-white z-50 ">
         <div className="col-span-3 flex items-center">
           <img
             src="/assets/easesmith-logo.png"
