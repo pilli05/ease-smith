@@ -27,7 +27,7 @@ const Products = () => {
           aria-describedby="alert-dialog-slide-description"
           fullWidth
         >
-          <FilterComponent open={open} setOpen={setOpen} />
+          <FilterComponent open={open} />
         </Dialog>
       </React.Fragment>
 

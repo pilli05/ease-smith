@@ -8,6 +8,7 @@ import AddToCartDialogBox from "../AddToCartDialogBox/AddToCartDialogBox";
 
 const ProductCard = () => {
   const [bookMarkedProductsList, setBookMarkedProductsList] = useState([]);
+  const [buyOnRentList, setBuyOnRentList] = useState([]);
   const [open, setOpen] = React.useState(false);
   const [productDetails, setProductDetails] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,6 +52,15 @@ const ProductCard = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const buyOnRent = (id) => {
+    setBuyOnRentList((prevBuyOnRentList) => {
+      if (prevBuyOnRentList.includes(id)) {
+        return prevBuyOnRentList.filter((productId) => productId !== id);
+      }
+      return [...prevBuyOnRentList, id];
+    });
   };
 
   return (
@@ -121,16 +131,28 @@ const ProductCard = () => {
                   </div>
                   <div className="flex items-center justify-between  my-3 space-x-2">
                     <button
-                      className="bg-[#165315] rounded-lg px-2 py-1 text-white flex items-center"
+                      className="bg-[#165315] rounded-lg px-2 py-2 text-white flex items-center"
                       onClick={() => handleClickOpen(product)}
                     >
                       <FiMinus className="mr-2" /> Add to cart{" "}
                       <FiPlus className="ml-2" />
                     </button>
 
-                    <button className="border border-[#165315] rounded-lg px-2 py-1 text-[#165315] font-[500] text-[15px]">
-                      Buy on Rent
-                    </button>
+                    {buyOnRentList.includes(product.id) ? (
+                      <button
+                        className="border border-[#165315] rounded-lg px-2 py-2 text-[#165315] font-[500] text-[15px] bg-[#a6d7a5]"
+                        onClick={() => buyOnRent(product.id)}
+                      >
+                        Rent Added
+                      </button>
+                    ) : (
+                      <button
+                        className="border border-[#165315] rounded-lg px-2 py-2 text-[#165315] font-[500] text-[15px]"
+                        onClick={() => buyOnRent(product.id)}
+                      >
+                        Buy on Rent
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
