@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ThankYou.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { RiCloseLine } from "react-icons/ri";
 
 const ThankYou = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleProductsPage = () => {
     navigate("/products");
   };
+
+  useEffect(() => {
+    if (location.pathname === "/thank-you") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, []);
 
   return (
     <div className="my-10 ">
