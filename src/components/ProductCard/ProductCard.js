@@ -4,9 +4,12 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { productsList } from "../../constant/productsList";
 import { PiGreaterThan, PiLessThan } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
+import AddToCartDialogBox from "../AddToCartDialogBox/AddToCartDialogBox";
 
 const ProductCard = () => {
   const [bookMarkedProductsList, setBookMarkedProductsList] = useState([]);
+  const [open, setOpen] = React.useState(false);
+  const [productDetails, setProductDetails] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 9;
 
@@ -41,8 +44,22 @@ const ProductCard = () => {
     navigate("/thank-you");
   };
 
+  const handleClickOpen = (product) => {
+    setOpen(true);
+    setProductDetails(product);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
+      <AddToCartDialogBox
+        open={open}
+        handleClose={handleClose}
+        productDetails={productDetails}
+      />
       <div className="md:pl-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {currentProductsList && currentProductsList.length > 0
           ? currentProductsList.map((product) => (
@@ -103,7 +120,10 @@ const ProductCard = () => {
                     </span>
                   </div>
                   <div className="flex items-center justify-between  my-3 space-x-2">
-                    <button className="bg-[#165315] rounded-lg px-2 py-1 text-white flex items-center">
+                    <button
+                      className="bg-[#165315] rounded-lg px-2 py-1 text-white flex items-center"
+                      onClick={() => handleClickOpen(product)}
+                    >
                       <FiMinus className="mr-2" /> Add to cart{" "}
                       <FiPlus className="ml-2" />
                     </button>

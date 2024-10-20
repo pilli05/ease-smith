@@ -1,0 +1,24 @@
+.add-to-cart-dialog-box {
+  background-color: whitesmoke !important;
+}
+
+@media screen and (min-width: 320px) and (max-width: 420px) {
+  .close-button {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .modal-close-buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .close-button {
+    margin-right: 10px;
+  }
+}

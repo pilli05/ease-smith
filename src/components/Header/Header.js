@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
 import { CiSearch } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
@@ -7,12 +7,17 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import { MdOutlineClose } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
+import { CartContext } from "../../App";
 
 const Header = () => {
   const navigate = useNavigate();
   const handleHomePage = () => {
     navigate("/");
   };
+
+  const { cartCount } = useContext(CartContext);
+
+  console.log(cartCount);
 
   const [open, setOpen] = useState(false);
   const [toolsMenu, setToolsMenu] = useState(false);
@@ -43,7 +48,7 @@ const Header = () => {
           <img src="/assets/cart.png" alt="account-profile" className="w-6" />
           <span className="text-[13px] font-[500] mt-1">Cart</span>
           <div className="absolute top-[-18px] right-[-7px] bg-[#F3A939]  w-5 h-5 flex justify-center items-center rounded-full">
-            <span className="text-[12px]">3</span>
+            <span className="text-[12px]">{cartCount}</span>
           </div>
         </div>
       </div>
@@ -186,7 +191,7 @@ const Header = () => {
               />
               <span className="text-[13px] font-[500] mt-1">Cart</span>
               <div className="absolute top-[-18px] right-[-7px] bg-[#F3A939]  w-5 h-5 flex justify-center items-center rounded-full">
-                <span className="text-[12px]">3</span>
+                <span className="text-[12px]">{cartCount}</span>
               </div>
             </div>
           </div>
