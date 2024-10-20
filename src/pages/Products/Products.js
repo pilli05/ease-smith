@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./Products.css";
 import CarouselComponent from "../../components/Carousel/CarouselComponent";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import FilterComponent from "../../components/FilterComponent/FilterComponent";
-import { FaFilter } from "react-icons/fa";
 import Dialog from "@mui/material/Dialog";
+import { LuFilter } from "react-icons/lu";
 
 const Products = () => {
   const [open, setOpen] = useState(false);
+  const productsListRef = useRef(null);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -31,7 +32,7 @@ const Products = () => {
         </Dialog>
       </React.Fragment>
 
-      <div className="px-3 md:px-10 my-10">
+      <div className="px-3 md:px-10 my-16">
         <div className="inline-flex items-center space-x-3 mb-4">
           <button className="bg-[#165315] text-xl text-white px-3 py-2 font-[600]">
             Plants
@@ -50,12 +51,15 @@ const Products = () => {
         </p>
         <p className="font-[600] text-2xl my-5">Nursery</p>
         <CarouselComponent />
-        <div className="grid grid-cols-12 my-16 items-start">
+        <div
+          className="grid grid-cols-12 my-16 items-start"
+          ref={productsListRef}
+        >
           <FilterComponent />
           <div className="col-span-12 md:col-span-9 py-2 px-5">
             <div className="flex items-center justify-between  md:pl-10">
               <div className="md:space-x-5 flex flex-col md:flex-row">
-                <span className="font-[400] text-[15px] text-[#6A6A6A]">
+                <span className="font-[400] text-[15px] text-[#6A6A6A] mb-2 md:mb-0">
                   300 Products
                 </span>
                 <select className="bg-[#165315] py-1 px-2 text-white rounded outline-none w-[180px] font-[700] text-base">
@@ -78,11 +82,11 @@ const Products = () => {
               </div>
               <div className="flex items-center space-x-2 block md:hidden">
                 <span className="text-[#6A6A6A]">Filter</span>
-                <FaFilter size={25} color="#F3A939" onClick={handleClickOpen} />
+                <LuFilter size={25} color="#F3A939" onClick={handleClickOpen} />
               </div>
             </div>
             <div className="my-7">
-              <ProductCard />
+              <ProductCard productsListRef={productsListRef} />
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import AddToCartDialogBox from "../AddToCartDialogBox/AddToCartDialogBox";
 import Pagination from "../Pagination/Pagination";
 
-const ProductCard = () => {
+const ProductCard = ({ productsListRef }) => {
   const [bookMarkedProductsList, setBookMarkedProductsList] = useState([]);
   const [buyOnRentList, setBuyOnRentList] = useState([]);
   const [open, setOpen] = React.useState(false);
@@ -39,6 +39,11 @@ const ProductCard = () => {
 
   const handlePageChange = (currentPage) => {
     setCurrentPage(currentPage);
+    if (productsListRef.current) {
+      productsListRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
   };
 
   const handleThankYouPage = () => {
