@@ -118,8 +118,8 @@ const Header = () => {
           Call us on: +91 98768 05120
         </span>
       </div>
-      <div className="hidden lg:block">
-        <div className=" my-5 grid grid-cols-12 items-center px-10 sticky top-0 py-5 bg-white z-50 ">
+      <div className="hidden lg:block sticky top-0 bg-white z-50 ">
+        <div className=" my-5 grid grid-cols-12 items-center px-10 py-5">
           <div className="col-span-3 flex items-center ">
             <img
               src="/assets/easesmith-logo.png"
@@ -197,22 +197,26 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="block lg:hidden flex justify-between items-center px-5 py-5">
-        <div className="col-span-3 flex items-center ">
-          <img
-            src="/assets/easesmith-logo.png"
-            alt="logo"
-            className="w-[60px] mr-4 cursor-pointer"
-            onClick={handleHomePage}
-          />
-          <span className="text-2xl font-[600] text-[#165315]">Chaperone</span>
+      <div className="sticky top-0 z-50 bg-white">
+        <div className="block lg:hidden flex justify-between items-center px-5 py-5">
+          <div className="col-span-3 flex items-center ">
+            <img
+              src="/assets/easesmith-logo.png"
+              alt="logo"
+              className="w-[60px] mr-4 cursor-pointer"
+              onClick={handleHomePage}
+            />
+            <span className="text-2xl font-[600] text-[#165315]">
+              Chaperone
+            </span>
+          </div>
+          <div className="">
+            <RxHamburgerMenu size={25} onClick={toggleDrawer(true)} />
+          </div>
+          <Drawer open={open} onClose={toggleDrawer(false)}>
+            {DrawerList}
+          </Drawer>
         </div>
-        <div className="">
-          <RxHamburgerMenu size={25} onClick={toggleDrawer(true)} />
-        </div>
-        <Drawer open={open} onClose={toggleDrawer(false)}>
-          {DrawerList}
-        </Drawer>
       </div>
       <div className="flex justify-center px-5">
         <div className="inline-flex items-center justify-between border-b-2 border-b-[#838383]  w-[370px]">
