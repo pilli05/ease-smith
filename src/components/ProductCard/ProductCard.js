@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { productsList } from "../../constant/productsList";
-import { PiGreaterThan, PiLessThan } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import AddToCartDialogBox from "../AddToCartDialogBox/AddToCartDialogBox";
+import Pagination from "../Pagination/Pagination";
 
 const ProductCard = () => {
   const [bookMarkedProductsList, setBookMarkedProductsList] = useState([]);
@@ -159,35 +159,13 @@ const ProductCard = () => {
             ))
           : null}
       </div>
-      <div className="p-3 my-10 flex justify-center">
-        <div className="flex items-center space-x-5">
-          <PiLessThan
-            className={currentPage === 1 ? "invisible" : "flex items-center"}
-          />
-
-          {pageNumbers.map((currentNumber) => (
-            <button
-              className={
-                currentNumber === currentPage
-                  ? " bg-[#F3A939] rounded-lg  py-1 text-black font-[500] text-[15px] h-[35px] w-[30px]"
-                  : "border border-[#F3A939] rounded-lg  py-1 text-black font-[500] text-[15px] h-[35px] w-[30px] hover:bg-[#F3A939] transition-all duration-500"
-              }
-              key={currentNumber}
-              onClick={() => handlePageChange(currentNumber)}
-            >
-              {currentNumber}
-            </button>
-          ))}
-
-          <PiGreaterThan
-            className={
-              currentProductsList.length < productsPerPage
-                ? "invisible"
-                : "flex items-center"
-            }
-          />
-        </div>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        pageNumbers={pageNumbers}
+        handlePageChange={handlePageChange}
+        currentProductsList={currentProductsList}
+        productsPerPage={productsPerPage}
+      />
     </>
   );
 };

@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+Ease Smith E-Commerce Project Details:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1.This Project is web-based as well as responsive frontend application.
 
-## Available Scripts
+2.TECHNOLOGIES USED:
 
-In the project directory, you can run:
+- Frontend: React, React Context(for State Management), React Router(for Routes Management)
+- CSS : Tailwind CSS
+- React Icons (NPM Package for icons for more interactive)
+- Material UI (NPM Package for Side Drawer for Menu in Mobile View and Dialog Box for Order Confirmation on Click event of View Product in Product Card )
+- React Multi Carousel (NPM Package for show Products in carousel)
 
-### `npm start`
+3. GETTING STARTED & INSTALLATION:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Clone the repository using the following command: https://github.com/pilli05/ease-smith.git
+- Install the dependencies using the following command: `npm install`
+- Start the application using the following command: `npm start`
+- Open your browser and navigate to `http://localhost:3000` to view the application.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  4.FEATURES:
 
-### `npm test`
+- Responsive Design.
+- To improve Performance of page loading getting data quickly used Pagination with 9 products at time only instead of show all products in product page.
+- Side Drawer for Menu in Mobile View.
+- Dialog Box for Order Confirmation on Click event of View Product button in Product Card.
+- State Management using React Context.
+- Routes Management using React Router.
+- Material UI for Side Drawer and Dialog Box.
+- React Multi Carousel for Products to show in Carousel.
+- React Icons for more interactive UI.
+- Tailwind CSS for styling.
+- Product Details Page with Product Description, Price, and Add to Cart Button.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  5.USAGE:
 
-### `npm run build`
+- Open the application in your browser.
+- Product Details Page with Product Description, Price, and Add to Cart Button with pagination in every page total 9 products displayed.
+- Click on the Menu Button in mobile to open the Side Drawer.
+- Click on the View Product button in the Product Card it will redirect to thank you page.
+- Click on the Add to Cart button to open the Dialog Box for Order Confirmation.
+- Click on the Cart Icon to view the cart.
+- Click on the Checkout button to proceed to checkout.
+- Fill in the required details and click on the Place Order button to place the order.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  6.FOLDER STRUCTURE:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- components: Contains all the React components used in the application.
+- constants: All Static Data in Array of Object form (e.g Products List, Filter Types List, Carousel Products List)
+- images: Contains all the images used in the application.
+- pages: Contains all the pages used in the application.
+- public: Contains all the public assets used in the application.
+- src: Contains all the source code used in the application.
+- App.js: The main application component.
+- index.js: The entry point of the application.
+- package.json: The package file used to manage dependencies.
