@@ -17,8 +17,6 @@ const Header = () => {
 
   const { cartCount } = useContext(CartContext);
 
-  console.log(cartCount);
-
   const [open, setOpen] = useState(false);
   const [toolsMenu, setToolsMenu] = useState(false);
   const [servicesMenu, setServicesMenu] = useState(false);
