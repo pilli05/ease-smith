@@ -118,7 +118,7 @@ const Header = () => {
           Call us on: +91 98768 05120
         </span>
       </div>
-      <div className="hidden lg:block sticky top-0 bg-white z-50 ">
+      <div className="hidden lg:block sticky top-0 bg-white z-50 shadow">
         <div className=" my-5 grid grid-cols-12 items-center px-10 py-5">
           <div className="col-span-3 flex items-center ">
             <img
@@ -131,7 +131,7 @@ const Header = () => {
               Chaperone
             </span>
           </div>
-          <div className="col-span-6 text-base font-[500] flex items-center justify-between ">
+          <div className="col-span-7 text-base font-[500] flex items-center justify-between ">
             <span className="cursor-pointer">Home</span>
             <span className="text-[#F3A939] border-b border-b-[#F3A939] cursor-pointer">
               Plants & Pots
@@ -174,7 +174,7 @@ const Header = () => {
             <span className="cursor-pointer">Our Story</span>
             <span className="cursor-pointer">FAQs</span>
           </div>
-          <div className="col-span-3 flex justify-end space-x-5">
+          <div className="col-span-2 flex justify-end space-x-5">
             <div className="flex flex-col items-center">
               <img
                 src="/assets/account-profile.png"
@@ -197,7 +197,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="sticky top-0 z-50 bg-white">
+      <div className="sticky top-0 z-50 bg-white shadow">
         <div className="block lg:hidden flex justify-between items-center px-5 py-5">
           <div className="col-span-3 flex items-center ">
             <img
@@ -218,7 +218,7 @@ const Header = () => {
           </Drawer>
         </div>
       </div>
-      <div className="flex justify-center px-5">
+      <div className="flex justify-center px-5 mt-7">
         <div className="inline-flex items-center justify-between border-b-2 border-b-[#838383]  w-[370px]">
           <div className="flex items-center">
             <CiSearch size={25} color="#838383" />
