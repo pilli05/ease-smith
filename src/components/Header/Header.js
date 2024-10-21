@@ -8,6 +8,7 @@ import Drawer from "@mui/material/Drawer";
 import { MdOutlineClose } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import { CartContext } from "../../App";
+import { Popper } from "@mui/material";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -18,11 +19,37 @@ const Header = () => {
   const { cartCount } = useContext(CartContext);
 
   const [open, setOpen] = useState(false);
-  const [toolsMenu, setToolsMenu] = useState(false);
-  const [servicesMenu, setServicesMenu] = useState(false);
+  const [anchorEl1, setAnchorEl1] = React.useState(null);
+  const [anchorEl2, setAnchorEl2] = React.useState(null);
+  const [showTools, setShowTools] = useState(false);
+  const [showServices, setShowServices] = useState(false);
+
+  const handleToolsClick = (event) => {
+    setAnchorEl1(anchorEl1 ? null : event.currentTarget);
+  };
+
+  const handleServicesClick = (event) => {
+    setAnchorEl2(anchorEl2 ? null : event.currentTarget);
+  };
+
+  let openToolsMenu = Boolean(anchorEl1);
+  const idTools = openToolsMenu ? "simple-popper" : undefined;
+
+  let openServicesMenu = Boolean(anchorEl2);
+  const idServices = openServicesMenu ? "simple-popper" : undefined;
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
+    setShowServices(false);
+    setShowTools(false);
+  };
+
+  const handleShowTools = () => {
+    setShowTools(!showTools);
+  };
+
+  const handleShowServices = () => {
+    setShowServices(!showServices);
   };
 
   const DrawerList = (
@@ -69,17 +96,42 @@ const Header = () => {
         >
           Careers
         </li>
-        <li
-          className="text-[15px] font-[500] text-[#999999] my-2"
-          onClick={toggleDrawer(false)}
-        >
-          Tools
+        <li className="text-[15px] font-[500] text-[#999999] my-2">
+          <div className="flex items-center">
+            <span>Tools</span>{" "}
+            <IoIosArrowDown className="ml-1 mt-1" onClick={handleShowTools} />
+          </div>
+          {showTools ? (
+            <div
+              className="text-sm text-[#838383]  p-2 shadow-md shadow-gray-500 bg-white space-y-3"
+              onClick={toggleDrawer(false)}
+            >
+              <p>Gardening Tools</p>
+              <p>Pest Control</p>
+              <p>Fertilizers</p>
+              <p>Watering Cans</p>
+              <p>Gardening Accessories</p>
+            </div>
+          ) : null}
         </li>
-        <li
-          className="text-[15px] font-[500] text-[#999999] my-2"
-          onClick={toggleDrawer(false)}
-        >
-          Our Services
+        <li className="text-[15px] font-[500] text-[#999999] my-2 ">
+          <div className="flex items-center">
+            <span>Our Services</span>{" "}
+            <IoIosArrowDown
+              className="ml-1 mt-1"
+              onClick={handleShowServices}
+            />
+          </div>
+          {showServices ? (
+            <div
+              className="text-sm text-[#838383]  p-2 shadow-md shadow-gray-500 bg-white space-y-3"
+              onClick={toggleDrawer(false)}
+            >
+              <p>Book a Maali</p>
+              <p>Plant Day Care</p>
+              <p>Rent Plants</p>
+            </div>
+          ) : null}
         </li>
         <li
           className="text-[15px] font-[500] text-[#999999] my-2"
@@ -97,14 +149,6 @@ const Header = () => {
       </ul>
     </Box>
   );
-
-  const handleToolsMouseOver = () => {
-    setToolsMenu(!toolsMenu);
-  };
-
-  const handleServicesMouseOver = () => {
-    setServicesMenu(!servicesMenu);
-  };
 
   return (
     <>
@@ -135,38 +179,57 @@ const Header = () => {
               Plants & Pots
             </span>
             <div>
-              <span
-                className="cursor-pointer flex items-center"
-                onMouseOver={handleToolsMouseOver}
-                onMouseLeave={handleToolsMouseOver}
-              >
-                Tools <IoIosArrowDown className="ml-1 mt-1" />
+              <span className="cursor-pointer flex items-center">
+                Tools{" "}
+                <IoIosArrowDown
+                  className="ml-1 mt-1"
+                  aria-describedby={idTools}
+                  type="button"
+                  onClick={handleToolsClick}
+                />
               </span>
-              {toolsMenu ? (
-                <div className="text-sm text-[#838383] absolute bottom-[-140px] w-[200px] p-2 shadow-md shadow-gray-500 bg-white space-y-3">
-                  <p>Gardening Tools</p>
-                  <p>Pest Control</p>
-                  <p>Fertilizers</p>
-                  <p>Watering Cans</p>
-                  <p>Gardening Accessories</p>
-                </div>
-              ) : null}
+
+              <Popper
+                id={idTools}
+                open={openToolsMenu}
+                anchorEl={anchorEl1}
+                className="z-50 "
+              >
+                <Box sx={{ p: 1, bgcolor: "background.paper" }}>
+                  <div className="text-sm text-[#838383]  p-2 shadow-md shadow-gray-500 bg-white space-y-3">
+                    <p>Gardening Tools</p>
+                    <p>Pest Control</p>
+                    <p>Fertilizers</p>
+                    <p>Watering Cans</p>
+                    <p>Gardening Accessories</p>
+                  </div>
+                </Box>
+              </Popper>
             </div>
             <div>
-              <span
-                className="cursor-pointer flex items-center"
-                onMouseOver={handleServicesMouseOver}
-                onMouseLeave={handleServicesMouseOver}
-              >
-                Our Services <IoIosArrowDown className="ml-1 mt-1" />
+              <span className="cursor-pointer flex items-center">
+                Our Services{" "}
+                <IoIosArrowDown
+                  className="ml-1 mt-1"
+                  aria-describedby={idServices}
+                  type="button"
+                  onClick={handleServicesClick}
+                />
               </span>
-              {servicesMenu ? (
-                <div className="text-sm text-[#838383] absolute bottom-[-70px] w-[200px] p-2 shadow-md shadow-gray-500 bg-white space-y-3">
-                  <p>Book a Maali</p>
-                  <p>Plant Day Care</p>
-                  <p>Rent Plants</p>
-                </div>
-              ) : null}
+              <Popper
+                id={idServices}
+                open={openServicesMenu}
+                anchorEl={anchorEl2}
+                className="z-50 "
+              >
+                <Box sx={{ p: 1, bgcolor: "background.paper" }}>
+                  <div className="text-sm text-[#838383]  p-2 shadow-md shadow-gray-500 bg-white space-y-3">
+                    <p>Book a Maali</p>
+                    <p>Plant Day Care</p>
+                    <p>Rent Plants</p>
+                  </div>
+                </Box>
+              </Popper>
             </div>
             <span className="cursor-pointer">Blog</span>
             <span className="cursor-pointer">Our Story</span>
