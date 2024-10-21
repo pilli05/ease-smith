@@ -24,7 +24,7 @@ function App() {
           </Routes>
           <Footer />
         </BrowserRouter>
-        <div className="bottom-[20px] right-[20px] sticky flex justify-end bg-trasparent mr-[20px] z-50">
+        <div className="fixed bottom-[20px] right-[20px] flex flex-col justify-end items-center space-y-4 z-50">
           <div className="">
             <img
               src="/assets/whatsapp-image.png"
@@ -32,7 +32,7 @@ function App() {
               className="animate-bounce cursor-pointer"
             />
             <FaAngleUp
-              className="cursor-pointer bg-[#6E6E6E] rounded-full p-2 ml-2 hover:bg-[#504f4f]"
+              className="cursor-pointer bg-[#6E6E6E] rounded-full p-2 ml-2 mt-2 hover:bg-[#504f4f]"
               size={45}
               color="white"
               onClick={() => {
