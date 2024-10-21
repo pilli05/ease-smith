@@ -40,7 +40,8 @@ const ProductCard = ({ productsListRef }) => {
   const handlePageChange = (currentPage) => {
     setCurrentPage(currentPage);
     if (productsListRef.current) {
-      productsListRef.current.scrollIntoView({
+      window.scrollTo({
+        top: productsListRef.current.offsetTop - 120,
         behavior: "smooth",
       });
     }
